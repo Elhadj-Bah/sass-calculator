@@ -1,5 +1,5 @@
 header h1 {
-  color: blue;
+  color: black;
 }
 
 body {
@@ -14,8 +14,7 @@ body {
 }
 
 .outer-layer {
-    width: min(250px, 50vw);
- 
+  width: min(250px, 50vw);
   border: 3px solid black;
   background-color: black;
   border-radius: 10px;
@@ -32,7 +31,7 @@ body {
   padding: 20px;
   font-size: 30px;
   color: white;
-  background-color: chocolate;
+  background-color: #44444E;
   border-radius: 8px;
 }
 
@@ -52,4 +51,8 @@ button {
   border-radius: 8px;
   font-size: 18px;
   cursor: pointer;
+}
+
+.special-keys {
+  background-color: rgb(246, 160, 99);
 }
