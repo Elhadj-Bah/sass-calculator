@@ -33,10 +33,56 @@ numbersBtns.forEach((button) => {
   });
 });
 
-// numbersBtns.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     const number = button.getAttribute("data-number");
+//Operators handling
 
-//     console.log(number);
-//   });
-// });
+operatorBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    prevNum = curentNum;
+    activeOperation = button.getAttribute("data-operator");
+    isResetNextKey = true;
+  });
+});
+
+equalBtn.addEventListener("click", () => {
+  if (!activeOperation || prevNum === null) return;
+
+  const prev = parseFloat(prevNum);
+  const curent = parseFloat(curentNum);
+  let results = 0;
+
+  switch (activeOperation) {
+    case "+":
+      results = prev + curent;
+      break;
+
+    case "-":
+      results = prev - curent;
+      break;
+
+    case "*":
+      results = prev * curent;
+      break;
+
+    case "/":
+      results = curent === 0 ? "error" : prev / curent;
+      break;
+
+    default:
+      return;
+  }
+  curentNum = String(results);
+  prevNum = null;
+  activeOperation = null;
+  isResetNextKey = true;
+
+  updateDisplay();
+});
+
+clearBtn.addEventListener("click", () => {
+  curentNum = "0";
+  prevNum = null;
+  activeOperation = null;
+  isResetNextKey = false;
+
+  updateDisplay();
+});
